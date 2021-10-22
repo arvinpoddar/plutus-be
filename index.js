@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 
-const PORT_NUMBER = 5000;
+const PORT_NUMBER = process.env.PORT || 5000
 
 const categoryRoutes = require('./routes/categoryRoutes');
 // import routes using:
