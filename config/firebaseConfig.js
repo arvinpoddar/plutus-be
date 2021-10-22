@@ -7,9 +7,7 @@ let serviceAccount = null
 
 if (process.env.deployed) {
   serviceAccount = { ...serviceAccountConfig }
-  console.log(serviceAccount.private_key)
   serviceAccount.private_key = serviceAccountConfig.private_key.replace(/\\n/g, '\n')
-  console.log(serviceAccount.private_key)
 } else {
   serviceAccount = require('./plutus-be-738273006b5d.json');
 }

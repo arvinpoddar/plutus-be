@@ -25,8 +25,7 @@ const DEFAULT_CATEGORIES = [
  */
 router.post('/:userId', async (req, res) => {
   const COLLECTION = req.params.userId
-  console.log(COLLECTION)
-
+  
   const defaults = {}
 
   DEFAULT_CATEGORIES.forEach(cat => {
