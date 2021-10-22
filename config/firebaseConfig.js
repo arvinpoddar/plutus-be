@@ -3,10 +3,12 @@ const { initializeApp, cert } = require('firebase-admin/app');
 const { getFirestore } = require('firebase-admin/firestore');
 const { serviceAccountConfig } = require('./serviceAccount')
 
-let serviceAccount = require('./plutus-be-738273006b5d.json');
+let serviceAccount = null
 
 if (process.env.deployed) {
   serviceAccount = serviceAccountConfig
+} else {
+  serviceAccount = require('./plutus-be-738273006b5d.json');
 }
 
 initializeApp({
