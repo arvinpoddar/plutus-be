@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "plutus-be",
+  "private_key_id": "738273006b5d490e9885c6f29e80c1d13f6c08d0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCtBNpYLhfUpIUR\nbieK3ew3BgVha5AbteqbtvaUoGknBcpr3JbuPVe62kmxEskghYob+EQUy6KViFbs\ntrP8IRovpjk1aChQ6oYWgutOL1buc0DjVt2qk72dojsd3sWC6hOD5prY2FbfwQVP\nY99Ys8vWn+9eB2zWzA6MIhNxM68OcQhWyaHON/udlLbkyAl6OTzRqdiXJmu2ljfc\nWrgmlAZYlo878wB65Rt5QpesYvWVgjFWZdPFaz27UlWSZpFIqQll5UzDpitL8OwO\nYgOxRZnLUIQbuQQyJHA9bIHbSffJKpUywV9OylVxd4SckIt65OEAvVN+H2RlDgnm\nloa9QVM3AgMBAAECggEAUhCkNAEg4oZqa3sRHGfou6yKbsvjHZGqxtMAoDx5w72W\nZpTJrhTAgOs62tdrOJa+jEe0mxx/cGeruzlpo2RcFE/GgNN3k/G5SgIs8/e2RwG5\nvFseZuMOpC8n1SIuEstOGFkQB1yN0DGwgBiB/oPBYnqXwcTJ1hQRrlwXVrFKDhG8\njX5Kn71HeXl+YYuV3IgE+efqF3kakh66n+Y8V2gAPAafQA6vlcv6BYrZNflzyz0H\n9nC0AockWOYViGRIipZW8cK55gu6jGGeU4AgBiY301NnIkRI3ce1hxplY91w58ud\n5a2+sIEVW4o1pnRTSB7nOR15p0EiPnTnTLDUHlrC6QKBgQDmIJuFVueHPJifpBGN\nQo5cAohmw6oI1zx4QXSb2wvL78jS075DqgdHsDXRXfMwZOIjGdnbD5NSebCAJjdK\ng6DZS/3kqgV3YCqyFeTfkNHsHdenbvyffQ9PazfqrrikcB6MGAUBgpI71X4P8Re9\n+2YczXKhrXavTLCSJm4I3eO3WwKBgQDAeJWIC8J5HcRYlaVJQ3hMxMeQBb7Uacld\ntoN6+zmhtPM610D4XvT4cgjsJl+uF4qXoAz1zz2Lvavk1eN8YB+jX1cKmsNgpq97\ngfXFKUDsYMxCS4unmojqpDPg0mYVO99kvxgjvEsoeBzK6iCtT2HIbM152VUt1KsQ\ng5GT+Zz2VQKBgHYm57JeHCFjCzlrk1djhJPY+Q9KBlLjrzhO4v/iRvw98G3OKTG0\namh0IC2Ofv2pzjEXZLMEHC+MKwKgnGK1ki/+xCxS3tublFA6zXe7cww3hjGA2lNI\nckPkWKE1c7d5mTV0X52W3F28Dy1AK2BvYs4G7YP0+6qlRULEWFpVEkVhAoGBAJ/e\niTXrrqkzlHeQNS5ZoH8DpE94tj1xcRUqGKP6MLCkwLPLP+gN16TV85tTdH4Ch9fR\n1XIHpbOA5Fq7Xq1cmmr1MjNYwZhyW6hXFnGiBo9RB9i5L1MUBU4A/iZsHObeSHxC\nTibArBz9R800E9hg63OzDCl94EalM0IQRseGul3RAoGBANTo0vJegou2pXzHn4RM\neo2APd6VRMHVwg58K4VMcjX9AW/Eyl5CA59GAnfRy2fc6Yu0Si+mDLbchew8B2cV\nhnOq0DJ54uaj6genHuqsBit3hClvxh1opZza1DWp2JWdffmKz/T46Z1j5LsnB73u\nMvCoa3X8xgzAMXHfpY2e0LKM\n-----END PRIVATE KEY-----\n",
+  "client_email": "plutus-admin@plutus-be.iam.gserviceaccount.com",
+  "client_id": "108111665697411216899",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/plutus-admin%40plutus-be.iam.gserviceaccount.com"
+}
