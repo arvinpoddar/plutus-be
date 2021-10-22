@@ -6,5 +6,13 @@ module.exports = {
       message: "SERVER_ERROR",
       body: String(err)
     })
+  },
+
+  sendCustomError(res, code = 500, message = "Something went wrong") {
+    return res.status(code).send({
+      code: code,
+      message: "SERVER_ERROR",
+      body: message
+    })
   }
 }

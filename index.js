@@ -4,7 +4,10 @@ const cors = require('cors');
 
 const PORT_NUMBER = process.env.PORT || 5000
 
+const userRoutes = require('./routes/userRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
+const expenseRoutes = require('./routes/expenseRoutes');
+const paymentMethodRoutes = require('./routes/paymentMethodRoutes');
 // import routes using:
 // const moduleName = require ('./routes/moduleName')
 
@@ -23,7 +26,10 @@ app.use(express.json())
 
 PREFIX_ROUTE = "/users"
 
+app.use(PREFIX_ROUTE, userRoutes);
 app.use(PREFIX_ROUTE, categoryRoutes);
+app.use(PREFIX_ROUTE, expenseRoutes);
+app.use(PREFIX_ROUTE, paymentMethodRoutes);
 // USE NEW ROUTES WITH app.use(PREFIX_ROUTE, moduleName)
 
 // SUCCESS MESSAGE FOR MAIN APPLICATION ROUTE
