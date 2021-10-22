@@ -26,6 +26,13 @@ PREFIX_ROUTE = "/users"
 app.use(PREFIX_ROUTE, categoryRoutes);
 // USE NEW ROUTES WITH app.use(PREFIX_ROUTE, moduleName)
 
+// SUCCESS MESSAGE FOR MAIN APPLICATION ROUTE
+app.get("/", (req, res) => {
+  res.status(200).send({
+    code: 200,
+    message: "SUCCESS"
+  })
+})
 
 // Fall-through 404 error for all non-existent paths
 app.use(function (req, res) {
