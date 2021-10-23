@@ -31,7 +31,6 @@ router.get('/:userId/categories/', async (req, res) => {
         let totalExpenses = 0
         for (const key in allExpenses.data()) {
           const expense = allExpenses.get(key)
-          console.log(key)
           if (expense.categories && expense.categories.includes(category.id)) {
             expenses.push(expense)
             totalExpenses += expense.price
@@ -41,7 +40,7 @@ router.get('/:userId/categories/', async (req, res) => {
         const categoryData = {
           ...category,
           expenses,
-          total_expenses: totalExpenses
+          total_expenses: totalExpenses || 0
         }
 
         categoryList.push(categoryData)

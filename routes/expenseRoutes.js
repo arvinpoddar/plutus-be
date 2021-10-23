@@ -40,6 +40,7 @@ router.post('/:userId/expenses/', async (req, res) => {
     name,
     description,
     date,
+    price,
     payment_method,
     categories,
     images
@@ -55,6 +56,7 @@ router.post('/:userId/expenses/', async (req, res) => {
     name,
     description,
     date,
+    price,
     payment_method,
     categories,
     images
