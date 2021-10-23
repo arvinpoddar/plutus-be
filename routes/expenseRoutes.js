@@ -37,7 +37,7 @@ router.get('/:userId/expenses/', async (req, res) => {
 router.post('/:userId/expenses/', async (req, res) => {
   const COLLECTION = req.params.userId
   const {
-    title,
+    name,
     description,
     date,
     payment_method,
@@ -52,7 +52,7 @@ router.post('/:userId/expenses/', async (req, res) => {
   const expense = {
     id: newId,
     created_at: new Date().toISOString(),
-    title,
+    name,
     description,
     date,
     payment_method,
