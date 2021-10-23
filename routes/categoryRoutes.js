@@ -21,7 +21,32 @@ router.get('/:userId/categories/', async (req, res) => {
     if (!doc.exists) {
       return sendCustomError(res, 404, "Resource not found")
     } else {
-      return res.send(Object.values(doc.data()))
+      const data = Object.values(doc.data())
+      const expenseRef = db.collection(COLLECTION).doc(DOCUMENTS.EXPENSES)
+      const allExpenses = await expenseRef.get()
+
+      const categoryList = []
+      for (const category of data) {
+        const expenses = []
+        let totalExpenses = 0
+        for (const key in allExpenses.data()) {
+          const expense = allExpenses.get(key)
+          console.log(key)
+          if (expense.categories && expense.categories.includes(category.id)) {
+            expenses.push(expense)
+            totalExpenses += expense.price
+          }
+        }
+
+        const categoryData = {
+          ...category,
+          expenses,
+          total_expenses: totalExpenses
+        }
+
+        categoryList.push(categoryData)
+      }
+      return res.send(categoryList)
     }
   } catch (err) {
     sendError(res, err)
@@ -37,7 +62,7 @@ router.get('/:userId/categories/', async (req, res) => {
 router.post('/:userId/categories/', async (req, res) => {
   const COLLECTION = req.params.userId
   const { name } = req.body
-  
+
   const ref = db.collection(COLLECTION).doc(DOCUMENTS.CATEGORIES)
 
   const newId = uuidv4()
@@ -79,16 +104,19 @@ router.get('/:userId/categories/:categoryId', async (req, res) => {
       const allExpenses = await expenseRef.get()
 
       const expenses = []
+      let totalExpenses = 0
       for (const key in allExpenses.data()) {
         const expense = allExpenses.get(key)
         if (expense.categories && expense.categories.includes(categoryId)) {
           expenses.push(expense)
+          totalExpenses += expense.price
         }
       }
 
       const categoryData = {
         ...doc.get(categoryId),
-        expenses
+        expenses,
+        total_expenses: totalExpenses
       }
 
       return res.send(categoryData)
