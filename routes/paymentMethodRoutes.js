@@ -22,7 +22,9 @@ router.get('/:userId/payment-methods/', async (req, res) => {
     if (!doc.exists) {
       return sendCustomError(res, 404, "Resource not found")
     } else {
-      return res.send(Object.values(doc.data()))
+      const methodsList = Object.values(doc.data())
+      methodsList.sort((a, b) => b.created_at.localeCompare(a.created_at))
+      return res.send(methodsList)
     }
   } catch (err) {
     sendError(res, err)

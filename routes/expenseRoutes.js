@@ -22,7 +22,9 @@ router.get('/:userId/expenses/', async (req, res) => {
     if (!doc.exists) {
       return sendCustomError(res, 404, "Resource not found")
     } else {
-      return res.send(Object.values(doc.data()))
+      const expenseList = Object.values(doc.data())
+      expenseList.sort((a, b) => b.date.localeCompare(a.date))
+      return res.send(expenseList)
     }
   } catch (err) {
     sendError(res, err)
@@ -45,7 +47,7 @@ router.post('/:userId/expenses/', async (req, res) => {
     categories,
     images
   } = req.body
-  
+
   const ref = db.collection(COLLECTION).doc(DOCUMENTS.EXPENSES)
 
   const newId = uuidv4()

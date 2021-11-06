@@ -37,6 +37,8 @@ router.get('/:userId/categories/', async (req, res) => {
           }
         }
 
+        expenses.sort((a, b) => b.date.localeCompare(a.date))
+
         const categoryData = {
           ...category,
           expenses,
@@ -45,6 +47,8 @@ router.get('/:userId/categories/', async (req, res) => {
 
         categoryList.push(categoryData)
       }
+
+      categoryList.sort((a, b) => a.name.localeCompare(b.name))
       return res.send(categoryList)
     }
   } catch (err) {
@@ -111,6 +115,8 @@ router.get('/:userId/categories/:categoryId', async (req, res) => {
           totalExpenses += expense.price
         }
       }
+
+      expenses.sort((a, b) => b.date.localeCompare(a.date))
 
       const categoryData = {
         ...doc.get(categoryId),
