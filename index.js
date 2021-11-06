@@ -8,6 +8,8 @@ const userRoutes = require('./routes/userRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
 const paymentMethodRoutes = require('./routes/paymentMethodRoutes');
+const imageRoutes = require('./routes/imageRoutes');
+
 // import routes using:
 // const moduleName = require ('./routes/moduleName')
 
@@ -30,6 +32,7 @@ app.use(PREFIX_ROUTE, userRoutes);
 app.use(PREFIX_ROUTE, categoryRoutes);
 app.use(PREFIX_ROUTE, expenseRoutes);
 app.use(PREFIX_ROUTE, paymentMethodRoutes);
+app.use(PREFIX_ROUTE, imageRoutes);
 // USE NEW ROUTES WITH app.use(PREFIX_ROUTE, moduleName)
 
 // SUCCESS MESSAGE FOR MAIN APPLICATION ROUTE
