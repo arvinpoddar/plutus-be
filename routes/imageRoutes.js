@@ -1,5 +1,5 @@
 const { sendError, sendCustomError } = require('../utils');
-const { S3Client, AWSConfig } = require('../config/amazonConfig')
+const { S3ImageClient, AWSConfig } = require('../config/amazonConfig')
 
 const fetch = require('node-fetch');
 const FormData = require('form-data');
@@ -22,7 +22,7 @@ const getFileFromBase64 = (base64) => {
  * @param {*} base64 base64 encoding of image (should be JPEG)
  * @returns Promise object with S3 url
  */
-const uploadToS3 = (userId, base64) => {
+const uploadImageToS3 = (userId, base64) => {
   return new Promise((resolve, reject) => {
     try {
       const suffix = uuidv4().substring(0, 6)
@@ -36,11 +36,11 @@ const uploadToS3 = (userId, base64) => {
         ContentType: 'image/jpeg'
       };
 
-      S3Client.putObject(data, function (err, data) {
+      S3ImageClient.putObject(data, function (err, data) {
         if (err) {
           reject(err)
         } else {
-          const s3Url = `https://${AWSConfig.BUCKET_NAME}.s3.${AWSConfig.REGION}.amazonaws.com/${imageName}`
+          const s3Url = `https://${AWSConfig.IMAGE_BUCKET_NAME}.s3.${AWSConfig.REGION}.amazonaws.com/${imageName}`
           resolve(s3Url)
         }
       });
@@ -59,7 +59,7 @@ router.post('/:userId/images/', async (req, res) => {
   const USER_ID = req.params.userId
 
   try {
-    const url = await uploadToS3(USER_ID, req.body.base64)
+    const url = await uploadImageToS3(USER_ID, req.body.base64)
     return res.send({ url })
   } catch (err) {
     sendError(res, err)
@@ -83,7 +83,7 @@ router.post('/:userId/receipts/', async (req, res) => {
     console.log(ocrJson)
     console.log(ocrJson.receipts[0])
     if (ocrJson && ocrJson.receipts && ocrJson.receipts.length) {
-      const url = await uploadToS3(USER_ID, req.body.base64)
+      const url = await uploadImageToS3(USER_ID, req.body.base64)
       return res.send({
         receipt_data: ocrJson.receipts[0],
         url: url
