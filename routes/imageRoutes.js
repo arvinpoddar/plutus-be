@@ -80,8 +80,6 @@ router.post('/:userId/receipts/', async (req, res) => {
       body: formData
     });
     const ocrJson = await ocrResponse.json()
-    console.log(ocrJson)
-    console.log(ocrJson.receipts[0])
     if (ocrJson && ocrJson.receipts && ocrJson.receipts.length) {
       const url = await uploadImageToS3(USER_ID, req.body.base64)
       return res.send({
